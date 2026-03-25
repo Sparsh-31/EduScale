@@ -1,0 +1,14 @@
+[
+  {
+    "id": "GRADE_LKG",
+    "curriculumId": "CURR001",
+    "name": "LKG",
+    "order": 1
+  },
+  {
+    "id": "GRADE_UKG",
+    "curriculumId": "CURR001",
+    "name": "UKG",
+    "order": 2
+  }
+]

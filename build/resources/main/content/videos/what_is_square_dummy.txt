@@ -1,0 +1,2 @@
+Dummy lecture asset placeholder for ACT_OBS_SQUARE.
+Replace with an actual video file when external storage is integrated.

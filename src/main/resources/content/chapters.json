@@ -1,0 +1,32 @@
+[
+  {
+    "id": "CH_MATH_LKG_NUMBERS",
+    "subjectId": "SUB_MATH_LKG",
+    "name": "Numbers 1 to 10",
+    "description": "Counting and number recognition for early learners."
+  },
+  {
+    "id": "CH_ENG_LKG_ALPHABETS",
+    "subjectId": "SUB_ENG_LKG",
+    "name": "Capital Alphabets",
+    "description": "Recognize and match capital letters."
+  },
+  {
+    "id": "CH_MATH_UKG_BEFORE_AFTER",
+    "subjectId": "SUB_MATH_UKG",
+    "name": "Before and After Numbers",
+    "description": "Understand number order and sequencing."
+  },
+  {
+    "id": "CH_MATH_UKG_SHAPES",
+    "subjectId": "SUB_MATH_UKG",
+    "name": "2D Shapes",
+    "description": "Recognize and compare basic 2D shapes."
+  },
+  {
+    "id": "CH_ENG_UKG_PHONICS",
+    "subjectId": "SUB_ENG_UKG",
+    "name": "Beginning Sounds",
+    "description": "Identify first sounds in simple words."
+  }
+]

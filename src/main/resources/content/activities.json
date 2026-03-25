@@ -1,0 +1,378 @@
+[
+  {
+    "id": "ACT_OBS_LKG_MATH_COUNT",
+    "title": "Counting Song 1 to 10",
+    "instruction": "Watch and repeat numbers from 1 to 10.",
+    "engineType": "OBSERVE",
+    "activityType": "LEARNING",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_LKG_MATH_COUNT_1_10"],
+    "estimatedTimeSeconds": 60,
+    "tags": ["lkg", "math", "numbers", "video"],
+    "configJson": {
+      "videoUrl": "classpath:/content/videos/count_1_to_10_dummy.txt"
+    }
+  },
+  {
+    "id": "ACT_SEL_LKG_MATH_COUNT_FIVE",
+    "title": "Tap Number 5",
+    "instruction": "Question: Tap number 5.",
+    "engineType": "SELECT",
+    "activityType": "PRACTICE",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_LKG_MATH_COUNT_1_10"],
+    "estimatedTimeSeconds": 45,
+    "tags": ["lkg", "math", "numbers", "practice"],
+    "configJson": {
+      "options": [
+        { "id": "n2", "label": "2", "correct": false },
+        { "id": "n5", "label": "5", "correct": true },
+        { "id": "n9", "label": "9", "correct": false }
+      ]
+    }
+  },
+  {
+    "id": "ACT_MATCH_LKG_MATH_NUMBER_WORD",
+    "title": "Match Number and Word",
+    "instruction": "Match each number with its number word.",
+    "engineType": "MATCH",
+    "activityType": "PRACTICE",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_LKG_MATH_COUNT_1_10"],
+    "estimatedTimeSeconds": 60,
+    "tags": ["lkg", "math", "numbers", "match"],
+    "configJson": {
+      "left": [
+        { "id": "three", "label": "3" },
+        { "id": "six", "label": "6" }
+      ],
+      "right": [
+        { "id": "w_three", "label": "Three" },
+        { "id": "w_six", "label": "Six" }
+      ],
+      "pairs": [
+        { "leftId": "three", "rightId": "w_three" },
+        { "leftId": "six", "rightId": "w_six" }
+      ]
+    }
+  },
+  {
+    "id": "ACT_SEL_LKG_MATH_COUNT_ASSESS",
+    "title": "Counting Check",
+    "instruction": "Assessment: Which number comes after 7?",
+    "engineType": "SELECT",
+    "activityType": "ASSESSMENT",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_LKG_MATH_COUNT_1_10"],
+    "estimatedTimeSeconds": 45,
+    "tags": ["lkg", "math", "numbers", "assessment"],
+    "configJson": {
+      "options": [
+        { "id": "n6", "label": "6", "correct": false },
+        { "id": "n8", "label": "8", "correct": true },
+        { "id": "n9", "label": "9", "correct": false }
+      ]
+    }
+  },
+  {
+    "id": "ACT_OBS_LKG_ENG_LETTERS",
+    "title": "Alphabet Song",
+    "instruction": "Watch and sing A to Z letters.",
+    "engineType": "OBSERVE",
+    "activityType": "LEARNING",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_LKG_ENG_LETTER_RECOGNITION"],
+    "estimatedTimeSeconds": 60,
+    "tags": ["lkg", "english", "letters", "video"],
+    "configJson": {
+      "videoUrl": "classpath:/content/videos/what_is_square_dummy.txt"
+    }
+  },
+  {
+    "id": "ACT_SEL_LKG_ENG_FIND_A",
+    "title": "Find Letter A",
+    "instruction": "Question: Tap letter A.",
+    "engineType": "SELECT",
+    "activityType": "PRACTICE",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_LKG_ENG_LETTER_RECOGNITION"],
+    "estimatedTimeSeconds": 45,
+    "tags": ["lkg", "english", "letters", "practice"],
+    "configJson": {
+      "options": [
+        { "id": "a", "label": "A", "correct": true },
+        { "id": "e", "label": "E", "correct": false },
+        { "id": "o", "label": "O", "correct": false }
+      ]
+    }
+  },
+  {
+    "id": "ACT_MATCH_LKG_ENG_LETTER_SOUND",
+    "title": "Match Letter to Sound",
+    "instruction": "Match each letter with its beginning sound.",
+    "engineType": "MATCH",
+    "activityType": "PRACTICE",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_LKG_ENG_LETTER_RECOGNITION"],
+    "estimatedTimeSeconds": 60,
+    "tags": ["lkg", "english", "letters", "match"],
+    "configJson": {
+      "left": [
+        { "id": "b", "label": "B" },
+        { "id": "c", "label": "C" }
+      ],
+      "right": [
+        { "id": "s_b", "label": "/b/" },
+        { "id": "s_c", "label": "/k/" }
+      ],
+      "pairs": [
+        { "leftId": "b", "rightId": "s_b" },
+        { "leftId": "c", "rightId": "s_c" }
+      ]
+    }
+  },
+  {
+    "id": "ACT_SEL_LKG_ENG_LETTER_ASSESS",
+    "title": "Letter Check",
+    "instruction": "Assessment: Which one is letter M?",
+    "engineType": "SELECT",
+    "activityType": "ASSESSMENT",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_LKG_ENG_LETTER_RECOGNITION"],
+    "estimatedTimeSeconds": 45,
+    "tags": ["lkg", "english", "letters", "assessment"],
+    "configJson": {
+      "options": [
+        { "id": "m", "label": "M", "correct": true },
+        { "id": "w", "label": "W", "correct": false },
+        { "id": "n", "label": "N", "correct": false }
+      ]
+    }
+  },
+  {
+    "id": "ACT_OBS_UKG_MATH_ORDER",
+    "title": "Number Order Story",
+    "instruction": "Watch how numbers come before and after each other.",
+    "engineType": "OBSERVE",
+    "activityType": "LEARNING",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_UKG_MATH_BEFORE_AFTER"],
+    "estimatedTimeSeconds": 60,
+    "tags": ["ukg", "math", "order", "video"],
+    "configJson": {
+      "videoUrl": "classpath:/content/videos/count_1_to_10_dummy.txt"
+    }
+  },
+  {
+    "id": "ACT_SEL_UKG_MATH_BEFORE",
+    "title": "Before Number",
+    "instruction": "Question: Which number comes before 6?",
+    "engineType": "SELECT",
+    "activityType": "PRACTICE",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_UKG_MATH_BEFORE_AFTER"],
+    "estimatedTimeSeconds": 45,
+    "tags": ["ukg", "math", "before-after", "practice"],
+    "configJson": {
+      "options": [
+        { "id": "n4", "label": "4", "correct": false },
+        { "id": "n5", "label": "5", "correct": true },
+        { "id": "n7", "label": "7", "correct": false }
+      ]
+    }
+  },
+  {
+    "id": "ACT_MATCH_UKG_MATH_AFTER",
+    "title": "Match Number with Next Number",
+    "instruction": "Match each number to the number that comes after it.",
+    "engineType": "MATCH",
+    "activityType": "PRACTICE",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_UKG_MATH_BEFORE_AFTER"],
+    "estimatedTimeSeconds": 60,
+    "tags": ["ukg", "math", "before-after", "match"],
+    "configJson": {
+      "left": [
+        { "id": "l4", "label": "4" },
+        { "id": "l8", "label": "8" }
+      ],
+      "right": [
+        { "id": "r5", "label": "5" },
+        { "id": "r9", "label": "9" }
+      ],
+      "pairs": [
+        { "leftId": "l4", "rightId": "r5" },
+        { "leftId": "l8", "rightId": "r9" }
+      ]
+    }
+  },
+  {
+    "id": "ACT_SEL_UKG_MATH_ORDER_ASSESS",
+    "title": "Order Check",
+    "instruction": "Assessment: Which number comes after 9?",
+    "engineType": "SELECT",
+    "activityType": "ASSESSMENT",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_UKG_MATH_BEFORE_AFTER"],
+    "estimatedTimeSeconds": 45,
+    "tags": ["ukg", "math", "order", "assessment"],
+    "configJson": {
+      "options": [
+        { "id": "n8", "label": "8", "correct": false },
+        { "id": "n9", "label": "9", "correct": false },
+        { "id": "n10", "label": "10", "correct": true }
+      ]
+    }
+  },
+  {
+    "id": "ACT_OBS_UKG_SHAPES_INTRO",
+    "title": "Shape Time",
+    "instruction": "Watch and learn circle, square, triangle, and rectangle.",
+    "engineType": "OBSERVE",
+    "activityType": "LEARNING",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_UKG_MATH_IDENTIFY_SHAPES"],
+    "estimatedTimeSeconds": 60,
+    "tags": ["ukg", "math", "shapes", "video"],
+    "configJson": {
+      "videoUrl": "classpath:/content/videos/what_is_square_dummy.txt"
+    }
+  },
+  {
+    "id": "ACT_SEL_UKG_SHAPES_SQUARE",
+    "title": "Tap the Square",
+    "instruction": "Question: Tap the square shape.",
+    "engineType": "SELECT",
+    "activityType": "PRACTICE",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_UKG_MATH_IDENTIFY_SHAPES"],
+    "estimatedTimeSeconds": 45,
+    "tags": ["ukg", "math", "shapes", "practice"],
+    "configJson": {
+      "options": [
+        { "id": "circle", "label": "○", "correct": false },
+        { "id": "square", "label": "□", "correct": true },
+        { "id": "triangle", "label": "△", "correct": false }
+      ]
+    }
+  },
+  {
+    "id": "ACT_MATCH_UKG_SHAPES_NAME",
+    "title": "Match Shape Name",
+    "instruction": "Match shape names to their symbols.",
+    "engineType": "MATCH",
+    "activityType": "PRACTICE",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_UKG_MATH_IDENTIFY_SHAPES"],
+    "estimatedTimeSeconds": 60,
+    "tags": ["ukg", "math", "shapes", "match"],
+    "configJson": {
+      "left": [
+        { "id": "l_square", "label": "Square" },
+        { "id": "l_circle", "label": "Circle" }
+      ],
+      "right": [
+        { "id": "r_square", "label": "□" },
+        { "id": "r_circle", "label": "○" }
+      ],
+      "pairs": [
+        { "leftId": "l_square", "rightId": "r_square" },
+        { "leftId": "l_circle", "rightId": "r_circle" }
+      ]
+    }
+  },
+  {
+    "id": "ACT_SEL_UKG_SHAPES_ASSESS",
+    "title": "Shapes Check",
+    "instruction": "Assessment: Which one is a triangle?",
+    "engineType": "SELECT",
+    "activityType": "ASSESSMENT",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_UKG_MATH_IDENTIFY_SHAPES"],
+    "estimatedTimeSeconds": 45,
+    "tags": ["ukg", "math", "shapes", "assessment"],
+    "configJson": {
+      "options": [
+        { "id": "rectangle", "label": "▭", "correct": false },
+        { "id": "triangle", "label": "△", "correct": true },
+        { "id": "circle", "label": "○", "correct": false }
+      ]
+    }
+  },
+  {
+    "id": "ACT_OBS_UKG_ENG_SOUNDS",
+    "title": "Beginning Sounds Song",
+    "instruction": "Watch words and listen to their first sounds.",
+    "engineType": "OBSERVE",
+    "activityType": "LEARNING",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_UKG_ENG_BEGINNING_SOUNDS"],
+    "estimatedTimeSeconds": 60,
+    "tags": ["ukg", "english", "phonics", "video"],
+    "configJson": {
+      "videoUrl": "classpath:/content/videos/what_is_square_dummy.txt"
+    }
+  },
+  {
+    "id": "ACT_SEL_UKG_ENG_APPLE_SOUND",
+    "title": "Apple Starts With?",
+    "instruction": "Question: Which letter does APPLE start with?",
+    "engineType": "SELECT",
+    "activityType": "PRACTICE",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_UKG_ENG_BEGINNING_SOUNDS"],
+    "estimatedTimeSeconds": 45,
+    "tags": ["ukg", "english", "phonics", "practice"],
+    "configJson": {
+      "options": [
+        { "id": "a", "label": "A", "correct": true },
+        { "id": "b", "label": "B", "correct": false },
+        { "id": "c", "label": "C", "correct": false }
+      ]
+    }
+  },
+  {
+    "id": "ACT_MATCH_UKG_ENG_WORD_SOUND",
+    "title": "Match Word to Beginning Letter",
+    "instruction": "Match each word with its first letter.",
+    "engineType": "MATCH",
+    "activityType": "PRACTICE",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_UKG_ENG_BEGINNING_SOUNDS"],
+    "estimatedTimeSeconds": 60,
+    "tags": ["ukg", "english", "phonics", "match"],
+    "configJson": {
+      "left": [
+        { "id": "sun", "label": "Sun" },
+        { "id": "ball", "label": "Ball" }
+      ],
+      "right": [
+        { "id": "s", "label": "S" },
+        { "id": "b", "label": "B" }
+      ],
+      "pairs": [
+        { "leftId": "sun", "rightId": "s" },
+        { "leftId": "ball", "rightId": "b" }
+      ]
+    }
+  },
+  {
+    "id": "ACT_SEL_UKG_ENG_SOUND_ASSESS",
+    "title": "Sound Check",
+    "instruction": "Assessment: Which letter sound starts CAT?",
+    "engineType": "SELECT",
+    "activityType": "ASSESSMENT",
+    "difficultyLevel": "EASY",
+    "objectiveIds": ["OBJ_UKG_ENG_BEGINNING_SOUNDS"],
+    "estimatedTimeSeconds": 45,
+    "tags": ["ukg", "english", "phonics", "assessment"],
+    "configJson": {
+      "options": [
+        { "id": "c", "label": "C", "correct": true },
+        { "id": "t", "label": "T", "correct": false },
+        { "id": "a", "label": "A", "correct": false }
+      ]
+    }
+  }
+]
+

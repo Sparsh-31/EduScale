@@ -1,0 +1,22 @@
+[
+  {
+    "id": "SUB_MATH_LKG",
+    "gradeId": "GRADE_LKG",
+    "name": "Mathematics"
+  },
+  {
+    "id": "SUB_ENG_LKG",
+    "gradeId": "GRADE_LKG",
+    "name": "English"
+  },
+  {
+    "id": "SUB_MATH_UKG",
+    "gradeId": "GRADE_UKG",
+    "name": "Mathematics"
+  },
+  {
+    "id": "SUB_ENG_UKG",
+    "gradeId": "GRADE_UKG",
+    "name": "English"
+  }
+]

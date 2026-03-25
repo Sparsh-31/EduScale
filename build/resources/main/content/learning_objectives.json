@@ -1,0 +1,33 @@
+[
+  {
+    "id": "OBJ_LKG_MATH_COUNT_1_10",
+    "chapterId": "CH_MATH_LKG_NUMBERS",
+    "title": "Count Numbers 1 to 10",
+    "description": "Count objects and identify numbers from 1 to 10."
+  },
+  {
+    "id": "OBJ_LKG_ENG_LETTER_RECOGNITION",
+    "chapterId": "CH_ENG_LKG_ALPHABETS",
+    "title": "Recognize Capital Letters",
+    "description": "Identify and match capital letters A to Z."
+  },
+  {
+    "id": "OBJ_UKG_MATH_BEFORE_AFTER",
+    "chapterId": "CH_MATH_UKG_BEFORE_AFTER",
+    "title": "Find Before and After Numbers",
+    "description": "Choose which number comes before or after a given number."
+  },
+  {
+    "id": "OBJ_UKG_MATH_IDENTIFY_SHAPES",
+    "chapterId": "CH_MATH_UKG_SHAPES",
+    "title": "Identify Common 2D Shapes",
+    "description": "Recognize circle, square, triangle, and rectangle in context."
+  },
+  {
+    "id": "OBJ_UKG_ENG_BEGINNING_SOUNDS",
+    "chapterId": "CH_ENG_UKG_PHONICS",
+    "title": "Identify Beginning Sounds",
+    "description": "Match simple words to their beginning letter sounds."
+  }
+]
+

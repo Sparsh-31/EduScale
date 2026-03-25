@@ -1,0 +1,53 @@
+[
+  {
+    "id": "PACK_LKG_MATH_NUMBERS",
+    "packId": "LKG_MATH_NUMBERS_V1",
+    "name": "LKG Mathematics - Numbers Pack",
+    "description": "Offline pack for counting numbers 1 to 10.",
+    "version": "1.0.0",
+    "checksum": "dummy-checksum-lkg-math-v1",
+    "updatedAt": "2026-03-24T00:00:00Z",
+    "objectiveIds": ["OBJ_LKG_MATH_COUNT_1_10"]
+  },
+  {
+    "id": "PACK_LKG_ENG_ALPHABETS",
+    "packId": "LKG_ENG_ALPHABETS_V1",
+    "name": "LKG English - Alphabets Pack",
+    "description": "Offline pack for capital letter recognition.",
+    "version": "1.0.0",
+    "checksum": "dummy-checksum-lkg-eng-v1",
+    "updatedAt": "2026-03-24T00:00:00Z",
+    "objectiveIds": ["OBJ_LKG_ENG_LETTER_RECOGNITION"]
+  },
+  {
+    "id": "PACK_UKG_MATH_ORDER",
+    "packId": "UKG_MATH_ORDER_V1",
+    "name": "UKG Mathematics - Number Order Pack",
+    "description": "Offline pack for before/after number sequencing.",
+    "version": "1.0.0",
+    "checksum": "dummy-checksum-ukg-math-v1",
+    "updatedAt": "2026-03-24T00:00:00Z",
+    "objectiveIds": ["OBJ_UKG_MATH_BEFORE_AFTER"]
+  },
+  {
+    "id": "PACK_UKG_MATH_SHAPES",
+    "packId": "UKG_MATH_SHAPES_V1",
+    "name": "UKG Mathematics - Shapes Pack",
+    "description": "Offline pack for identifying common 2D shapes.",
+    "version": "1.0.0",
+    "checksum": "dummy-checksum-ukg-shapes-v1",
+    "updatedAt": "2026-03-24T00:00:00Z",
+    "objectiveIds": ["OBJ_UKG_MATH_IDENTIFY_SHAPES"]
+  },
+  {
+    "id": "PACK_UKG_ENG_PHONICS",
+    "packId": "UKG_ENG_PHONICS_V1",
+    "name": "UKG English - Beginning Sounds Pack",
+    "description": "Offline pack for beginner phonics and sounds.",
+    "version": "1.0.0",
+    "checksum": "dummy-checksum-ukg-eng-v1",
+    "updatedAt": "2026-03-24T00:00:00Z",
+    "objectiveIds": ["OBJ_UKG_ENG_BEGINNING_SOUNDS"]
+  }
+]
+

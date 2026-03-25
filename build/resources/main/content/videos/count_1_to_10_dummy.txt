@@ -1,0 +1,2 @@
+Dummy lecture asset placeholder for ACT_OBS_COUNT_1_10.
+Replace with an actual number counting video file later.

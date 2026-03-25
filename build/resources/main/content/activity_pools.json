@@ -1,0 +1,58 @@
+[
+  {
+    "id": "POOL_LKG_MATH_COUNT_1_10",
+    "objectiveId": "OBJ_LKG_MATH_COUNT_1_10",
+    "name": "LKG Math Count 1 to 10 Activities",
+    "activityIds": [
+      "ACT_OBS_LKG_MATH_COUNT",
+      "ACT_SEL_LKG_MATH_COUNT_FIVE",
+      "ACT_MATCH_LKG_MATH_NUMBER_WORD",
+      "ACT_SEL_LKG_MATH_COUNT_ASSESS"
+    ]
+  },
+  {
+    "id": "POOL_LKG_ENG_LETTER_RECOGNITION",
+    "objectiveId": "OBJ_LKG_ENG_LETTER_RECOGNITION",
+    "name": "LKG English Letter Recognition Activities",
+    "activityIds": [
+      "ACT_OBS_LKG_ENG_LETTERS",
+      "ACT_SEL_LKG_ENG_FIND_A",
+      "ACT_MATCH_LKG_ENG_LETTER_SOUND",
+      "ACT_SEL_LKG_ENG_LETTER_ASSESS"
+    ]
+  },
+  {
+    "id": "POOL_UKG_MATH_BEFORE_AFTER",
+    "objectiveId": "OBJ_UKG_MATH_BEFORE_AFTER",
+    "name": "UKG Math Before and After Activities",
+    "activityIds": [
+      "ACT_OBS_UKG_MATH_ORDER",
+      "ACT_SEL_UKG_MATH_BEFORE",
+      "ACT_MATCH_UKG_MATH_AFTER",
+      "ACT_SEL_UKG_MATH_ORDER_ASSESS"
+    ]
+  },
+  {
+    "id": "POOL_UKG_MATH_IDENTIFY_SHAPES",
+    "objectiveId": "OBJ_UKG_MATH_IDENTIFY_SHAPES",
+    "name": "UKG Math Shapes Activities",
+    "activityIds": [
+      "ACT_OBS_UKG_SHAPES_INTRO",
+      "ACT_SEL_UKG_SHAPES_SQUARE",
+      "ACT_MATCH_UKG_SHAPES_NAME",
+      "ACT_SEL_UKG_SHAPES_ASSESS"
+    ]
+  },
+  {
+    "id": "POOL_UKG_ENG_BEGINNING_SOUNDS",
+    "objectiveId": "OBJ_UKG_ENG_BEGINNING_SOUNDS",
+    "name": "UKG English Beginning Sounds Activities",
+    "activityIds": [
+      "ACT_OBS_UKG_ENG_SOUNDS",
+      "ACT_SEL_UKG_ENG_APPLE_SOUND",
+      "ACT_MATCH_UKG_ENG_WORD_SOUND",
+      "ACT_SEL_UKG_ENG_SOUND_ASSESS"
+    ]
+  }
+]
+

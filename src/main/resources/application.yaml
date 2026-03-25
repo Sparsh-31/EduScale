@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: EduScale
+  data:
+    mongodb:
+      uri: ${MONGO_URI:mongodb://localhost:27017/test}
+
+server:
+  port: ${PORT:8082}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
