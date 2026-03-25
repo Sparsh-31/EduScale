@@ -3,7 +3,7 @@ spring:
     name: EduScale
   data:
     mongodb:
-      uri: ${MONGO_URI:mongodb://localhost:27017/test}
+      uri: ${MONGO_URI}
 
 server:
   port: ${PORT:8082}
