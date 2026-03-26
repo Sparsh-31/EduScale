@@ -2,9 +2,12 @@ package com.eduScale.controller;
 
 import com.eduScale.domain.User;
 import com.eduScale.repository.UserRepository;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import java.util.List;
+import java.util.Locale;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,12 +31,19 @@ public class UserController {
      * Create a parent user (no parentId, role = PARENT).
      */
     @PostMapping("/parents")
-    public ResponseEntity<User> createParent(@Valid @RequestBody CreateParentRequest request) {
+    public ResponseEntity<?> createParent(@Valid @RequestBody CreateParentRequest request) {
+        String normalizedEmail = request.getEmail().trim().toLowerCase(Locale.ROOT);
+        if (userRepository.existsByEmailIgnoreCase(normalizedEmail)) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body(new ApiError("EMAIL_EXISTS", "A user with this email already exists."));
+        }
+
         User parent = User.builder()
                 .parentId(null)
                 .name(request.getName())
                 .age(request.getAge() != null ? request.getAge() : 0)
                 .grade(null)
+                .email(normalizedEmail)
                 .role(User.Role.PARENT)
                 .password(request.getPassword())
                 .build();
@@ -45,46 +55,50 @@ public class UserController {
      * Create a child user (parentId required, role = CHILD). Optionally set gradeId so the child sees learning objectives for that grade.
      */
     @PostMapping("/children")
-    public ResponseEntity<User> createChild(@Valid @RequestBody CreateChildRequest request) {
+    public ResponseEntity<?> createChild(@Valid @RequestBody CreateChildRequest request) {
         User child = User.builder()
                 .parentId(request.getParentId())
                 .name(request.getName())
                 .age(request.getAge() != null ? request.getAge() : 0)
                 .grade(request.getGradeId())
+                .email(null)
                 .role(User.Role.CHILD)
-                .password(request.getPassword())
+                .password(request.getPassword() == null || request.getPassword().isBlank()
+                        ? "demo"
+                        : request.getPassword())
                 .build();
         child = userRepository.save(child);
         return ResponseEntity.status(HttpStatus.CREATED).body(child);
     }
 
     /**
-     * Demo parent login. No tokens yet: it just validates (parentId + password).
-     *
-     * Compatibility note:
-     * - Older DB records may not have a password yet (null). For those records,
-     *   we treat any provided password as valid in this demo phase.
+     * Demo parent login. No tokens yet: it just validates (email + password).
      */
     @PostMapping("/parents/login")
-    public ResponseEntity<User> loginParent(@Valid @RequestBody LoginParentRequest request) {
-        return (ResponseEntity<User>) userRepository.findById(request.getParentId())
-                .map(user -> {
-                    if (user.getRole() != User.Role.PARENT) {
-                        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-                    }
+    public ResponseEntity<?> loginParent(@Valid @RequestBody LoginParentRequest request) {
+        String normalizedEmail = request.getEmail().trim().toLowerCase(Locale.ROOT);
+        var userOpt = userRepository.findByEmailIgnoreCase(normalizedEmail);
+        if (userOpt.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(new ApiError("USER_NOT_FOUND", "Parent account not found for this email."));
+        }
 
-                    String storedPassword = user.getPassword();
-                    boolean legacyNoPassword = storedPassword == null || storedPassword.isBlank();
-                    boolean passwordMatches =
-                            legacyNoPassword || storedPassword.equals(request.getPassword());
+        User user = userOpt.get();
+        if (user.getRole() != User.Role.PARENT) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(new ApiError("INVALID_ROLE", "This account is not a parent account."));
+        }
 
-                    if (!passwordMatches) {
-                        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-                    }
+        String storedPassword = user.getPassword();
+        boolean passwordMatches =
+                storedPassword != null && storedPassword.equals(request.getPassword());
 
-                    return ResponseEntity.ok(user);
-                })
-                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+        if (!passwordMatches) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(new ApiError("INVALID_CREDENTIALS", "Incorrect email or password."));
+        }
+
+        return ResponseEntity.ok(user);
     }
 
     /**
@@ -130,12 +144,18 @@ public class UserController {
     public static class CreateParentRequest {
         @NotBlank
         private String name;
+        @NotBlank
+        @Email
+        private String email;
         private Integer age;
         @NotBlank
+        @Size(min = 6, message = "must be at least 6 characters")
         private String password;
 
         public String getName() { return name; }
         public void setName(String name) { this.name = name; }
+        public String getEmail() { return email; }
+        public void setEmail(String email) { this.email = email; }
         public Integer getAge() { return age; }
         public void setAge(Integer age) { this.age = age; }
         public String getPassword() { return password; }
@@ -149,7 +169,6 @@ public class UserController {
         private String name;
         private Integer age;
         private String gradeId;
-        @NotBlank
         private String password;
 
         public String getParentId() { return parentId; }
@@ -166,12 +185,14 @@ public class UserController {
 
     public static class LoginParentRequest {
         @NotBlank
-        private String parentId;
+        @Email
+        private String email;
         @NotBlank
+        @Size(min = 6, message = "must be at least 6 characters")
         private String password;
 
-        public String getParentId() { return parentId; }
-        public void setParentId(String parentId) { this.parentId = parentId; }
+        public String getEmail() { return email; }
+        public void setEmail(String email) { this.email = email; }
         public String getPassword() { return password; }
         public void setPassword(String password) { this.password = password; }
     }

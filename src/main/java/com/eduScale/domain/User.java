@@ -33,6 +33,9 @@ public class User {
 
     private String grade;
 
+    @Indexed(unique = true, sparse = true)
+    private String email;
+
     private Role role;
 
     /**
