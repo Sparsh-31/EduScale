@@ -2,6 +2,7 @@ package com.eduScale.controller;
 
 import com.eduScale.domain.Activity;
 import com.eduScale.repository.ActivityRepository;
+import com.eduScale.security.ParentAuthSupport;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.Map;
 import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,9 +23,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class ActivityController {
 
     private final ActivityRepository activityRepository;
+    private final ParentAuthSupport parentAuthSupport;
 
     @GetMapping
-    public ResponseEntity<List<Activity>> findByIds(@RequestParam("ids") List<String> ids) {
+    public ResponseEntity<?> findByIds(
+            Authentication authentication,
+            @RequestParam("ids") List<String> ids) {
+        if (!parentAuthSupport.isParent(authentication)) {
+            return parentAuthSupport.forbidden();
+        }
         if (ids == null || ids.isEmpty()) {
             return ResponseEntity.ok(List.of());
         }
@@ -48,7 +56,12 @@ public class ActivityController {
     }
 
     @GetMapping("/by-objective/{objectiveId}")
-    public ResponseEntity<List<Activity>> findByObjectiveId(@PathVariable String objectiveId) {
+    public ResponseEntity<?> findByObjectiveId(
+            Authentication authentication,
+            @PathVariable String objectiveId) {
+        if (!parentAuthSupport.isParent(authentication)) {
+            return parentAuthSupport.forbidden();
+        }
         List<Activity> activities = activityRepository.findByObjectiveIdsContains(objectiveId);
         return ResponseEntity.ok(activities);
     }

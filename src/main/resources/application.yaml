@@ -3,7 +3,7 @@ spring:
     name: EduScale
   data:
     mongodb:
-      uri: ${MONGO_URI}
+      uri: ${MONGO_URI:mongodb://localhost:27017/test}
 
 server:
   port: ${PORT:8082}
@@ -13,3 +13,10 @@ management:
     web:
       exposure:
         include: health
+
+edu-scale:
+  jwt:
+    # Use JWT_SECRET in production (min 32 bytes for HS256).
+    secret: ${JWT_SECRET:eduScaleDevSecretKeyMustBeAtLeast256BitsForHS256UseEnvInProd!!}
+    access-expiration-ms: 900000
+    refresh-expiration-days: 30

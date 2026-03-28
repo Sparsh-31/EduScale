@@ -12,9 +12,11 @@ import com.eduScale.repository.GradeRepository;
 import com.eduScale.repository.LearningObjectiveRepository;
 import com.eduScale.repository.SubjectRepository;
 import com.eduScale.repository.UserRepository;
+import com.eduScale.security.ParentAuthSupport;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,29 +33,47 @@ public class CurriculumController {
     private final ChapterRepository chapterRepository;
     private final LearningObjectiveRepository learningObjectiveRepository;
     private final UserRepository userRepository;
+    private final ParentAuthSupport parentAuthSupport;
 
     @GetMapping("/curriculums")
-    public ResponseEntity<List<Curriculum>> listCurriculums() {
+    public ResponseEntity<?> listCurriculums(Authentication authentication) {
+        if (!parentAuthSupport.isParent(authentication)) {
+            return parentAuthSupport.forbidden();
+        }
         return ResponseEntity.ok(curriculumRepository.findAllByOrderById());
     }
 
     @GetMapping("/curriculums/{curriculumId}/grades")
-    public ResponseEntity<List<Grade>> listGrades(@PathVariable String curriculumId) {
+    public ResponseEntity<?> listGrades(Authentication authentication, @PathVariable String curriculumId) {
+        if (!parentAuthSupport.isParent(authentication)) {
+            return parentAuthSupport.forbidden();
+        }
         return ResponseEntity.ok(gradeRepository.findByCurriculumIdOrderByOrderAsc(curriculumId));
     }
 
     @GetMapping("/grades/{gradeId}/subjects")
-    public ResponseEntity<List<Subject>> listSubjects(@PathVariable String gradeId) {
+    public ResponseEntity<?> listSubjects(Authentication authentication, @PathVariable String gradeId) {
+        if (!parentAuthSupport.isParent(authentication)) {
+            return parentAuthSupport.forbidden();
+        }
         return ResponseEntity.ok(subjectRepository.findByGradeId(gradeId));
     }
 
     @GetMapping("/subjects/{subjectId}/chapters")
-    public ResponseEntity<List<Chapter>> listChapters(@PathVariable String subjectId) {
+    public ResponseEntity<?> listChapters(Authentication authentication, @PathVariable String subjectId) {
+        if (!parentAuthSupport.isParent(authentication)) {
+            return parentAuthSupport.forbidden();
+        }
         return ResponseEntity.ok(chapterRepository.findBySubjectId(subjectId));
     }
 
     @GetMapping("/chapters/{chapterId}/objectives")
-    public ResponseEntity<List<LearningObjective>> listLearningObjectives(@PathVariable String chapterId) {
+    public ResponseEntity<?> listLearningObjectives(
+            Authentication authentication,
+            @PathVariable String chapterId) {
+        if (!parentAuthSupport.isParent(authentication)) {
+            return parentAuthSupport.forbidden();
+        }
         return ResponseEntity.ok(learningObjectiveRepository.findByChapterId(chapterId));
     }
 
@@ -63,7 +83,13 @@ public class CurriculumController {
      * Traverses: child.gradeId → subjects in that grade → chapters in those subjects → objectives in those chapters.
      */
     @GetMapping("/children/{childId}/learning-objectives")
-    public ResponseEntity<List<LearningObjective>> getLearningObjectivesForChild(@PathVariable String childId) {
+    public ResponseEntity<?> getLearningObjectivesForChild(
+            Authentication authentication,
+            @PathVariable String childId) {
+        if (!parentAuthSupport.isParent(authentication)
+                || !parentAuthSupport.parentOwnsChild(authentication.getName(), childId)) {
+            return parentAuthSupport.forbidden();
+        }
         return userRepository.findById(childId)
                 .filter(user -> user.getRole() == User.Role.CHILD)
                 .map(child -> {
